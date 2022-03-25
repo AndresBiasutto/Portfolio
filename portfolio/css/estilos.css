@@ -1,0 +1,646 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    --blanco: #ffffff;
+    --oscuro: #111111;
+    --oscuro-transparente: rgba(0, 0, 0, 0.719);
+    --celeste: #49ACDC;
+    --magenta: #E42A5B;
+    --amarillo: #D3B65C;
+    --fontH: 'Josefin Sans', sans-serif;
+    --fontP: 'Montserrat', sans-serif;
+}
+html {
+    box-sizing: border-box;
+    min-height: 100%;
+    scroll-snap-type: y mandatory;
+    font-size: 62.5%; 
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+}
+p {
+    line-height: 1.3;
+    font-weight: lighter;
+}
+body {
+    font-family: var(--fontP);
+    min-height: 100%;
+    color: var(--blanco);
+    background-color: var(--oscuro);
+    font-size: 1.6rem;
+}
+input, textarea{
+    border-radius: 1rem;
+    width: 100%;
+    border: none;
+    margin: 1rem auto;
+    background-color: var(--blanco);
+}
+input::placeholder{
+    color: var(--oscuro);
+}
+
+textarea::placeholder{
+    color: var(--oscuro);
+}
+a{
+    display: flex;
+    align-items: center;
+}
+
+
+h1 {
+    font-size: 4.8rem;
+    font-family: var(--fontH);
+    color: var(--blanco);
+    text-shadow: 3px 0  var(--magenta);
+
+}
+h2 {
+    font-size: 5rem;
+    font-family: var(--fontH);
+    line-height: 2;
+    color: var(--blanco);
+    text-shadow: 3px 0  var(--magenta);
+    transform: rotate(270deg);
+}
+h3 {
+    font-size: 1.6rem;
+    font-family: var(--fontH);
+    line-height: 2;
+    color: var(--blanco);
+    text-shadow: 3px 0  var(--celeste);
+    text-align: center;
+    
+}
+a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+ul{
+    list-style: none;
+}
+img{
+    width: 100%;
+}
+section{
+    height: 100vh;
+}
+button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem .8rem;
+    width: 100%;
+ 
+    border: none;
+    
+    color: var(--oscuro);
+    background-color: var(--amarillo); 
+    font-size: 90%;
+    border-radius: 1rem;
+    margin: .5rem 0;
+    transition: .3s all ease-in-out;      
+}
+button:hover{
+    background-color: var(--magenta);
+    color: var(--amarillo);
+}
+.icon{
+    margin: 0 1rem;
+}
+
+.contenedor {
+    width: 85%;
+    margin: 0  auto;
+}
+
+.border{
+    border: .3rem solid var(--magenta);
+    border-radius: 1rem;
+}
+
+/*----------NAVEGACION----------*/
+
+.nav-bar{
+    display: flex;
+    position: fixed;
+    background-color: var(--oscuro-transparente);
+    width: 100%;
+    height: 4rem;
+    z-index: 1;
+}
+.nav-bar__logo{
+    width: 3rem;
+}
+.nav-bar__logo::before{
+    content: "";
+    position: absolute;
+    top: 1.9rem;
+    background-color: var(--magenta);
+    height: .3rem;
+    width: 100%;
+    border-radius: .5rem;
+}
+.nav-bar__navegacion--link{
+    font-size: medium;
+    position: relative;
+
+}
+.nav-bar__navegacion--link::before{
+    content: "";
+    position: absolute;
+    top: 1.7rem;
+    background-color: var(--celeste);
+    height: .5rem;
+    width: .5rem;
+    border-radius: 1rem;
+    transition: .3s ease-in-out;
+}
+.nav-bar__navegacion--link:hover::before{
+    width: 100%;
+    background-color: var(--magenta);
+}
+
+
+
+.nav-bar__contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar__navegacion ul{
+    display: flex;
+}
+.nav-bar__navegacion ul li{
+    margin-right: 1rem;
+}
+
+
+/*----------HERO----------*/
+
+.grid-template-hero{
+    display: grid;
+    grid-template-areas: 'boUp boUp boUp boUp boUp boUp boUp'
+                         'boUp boUp boUp boUp boUp boUp boUp'
+                         'boLe boLe cent cent cent boRi boRi'
+                         'boLe boLe cent cent cent boRi boRi'
+                         'boLe boLe cent cent cent boRi boRi'
+                         'boDo boDo boDo boDo boDo boDo boDo'
+                         'boDo boDo boDo boDo boDo boDo boDo';
+    background-image: url(../assets/img/background-skills.jpg);
+    background-color: #D3B65C;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-attachment: fixed;
+    /*Animacion del background*/
+    animation-name: cambio-color-background;
+    animation-duration: 20s;
+    animation-delay: 5;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+@keyframes cambio-color-background {
+    0%{
+        background-color: var(--amarillo);
+    }
+    25%{
+        background-color: var(--magenta);
+    }
+    50%{
+        background-color: var(--celeste);
+    }
+    75%{
+        background-color: var(--blanco);
+    }
+    100%{
+        background-color: var(--amarillo);
+    }
+
+}
+
+.grid-template-hero__placa{
+    position: relative;
+    grid-area: cent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--oscuro-transparente);
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.grid-template-hero__placa__h1::before{
+    content: "Full Stack Dev";
+    position: absolute;
+    top: 8rem;
+    color: var(--blanco);
+    text-shadow: 3px 0  var(--magenta);
+    
+}
+
+.grid-template-hero--button{
+    color: var(--magenta);
+    margin: 1.5rem auto;
+    width: 25%;
+    border: .2rem solid var(--magenta);
+    background-color: #11111100;
+}
+
+
+
+@media (max-width: 576px) {
+    .grid-template-hero{
+        min-width: 37rem;
+    }
+    .grid-template-hero__placa__h1::before{
+        content: "Full Stack Dev";
+        color: var(--celeste);
+        text-shadow: 3px 0  var(--magenta);
+        font-size: 4rem;
+        top: 10rem;
+        left: 15%;
+        
+    }
+  }
+
+
+/*----------ABOUT----------*/
+
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.grid-template-about{
+    display: grid;
+    grid-template-areas: 'titulo about about about about'
+                         'titulo certi certi certi certi'
+                         'titulo certi certi certi certi';
+    height: 80%;
+}
+
+.grid-template-about__titulo{
+    grid-area: titulo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 100%;
+}
+.grid-template-about__about-me{
+    grid-area: about;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.grid-template-about__retrato{
+    grid-area: retra;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50rem;
+    border: 3px solid var(--magenta);
+    margin: 0 5rem;
+}
+.grid-template-about__certifications{
+    grid-area: certi;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.gird-template-about__certifications__box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.grid-template-about__logo{
+    width: 15rem;
+    margin: 0 5rem;
+}
+@media (max-width: 576px) {
+    .about{
+        width: 100%;
+        height: 100%;
+        margin: 15rem auto;
+    }
+    .gird-template-about__certifications__box{
+        margin: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .grid-template-about__about-me{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1.5rem;
+    }
+    .grid-template-about__retrato{
+        grid-area: retra;
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50rem;
+        border: 3px solid var(--magenta);
+        margin: 5rem;
+    }
+    .grid-template-about__logo{
+        width: 10rem;
+        margin: 2rem 5rem;
+    }
+  }
+
+/*----------SKILLS----------*/
+
+.skills{
+    height: 100vh;
+    background-image: url("../assets/img/background-skills.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: var(--celeste);
+    background-blend-mode: luminosity    ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logos--br{
+    border-radius: 1rem;
+}
+.logos__contenedor{
+    background-color: rgba(0, 0, 0, 0.575);
+    padding: 1rem;
+}
+.logos__icono{ 
+    padding: .5rem;
+}
+.logos__icono h3{
+    color: var(--blanco);
+    background-color: var(--oscuro-transparente);
+    text-align: center;
+    line-height: .5;
+    padding: .5rem;
+    margin: .5rem;
+    
+}
+
+.logos__icono__bar{
+    border: 3px solid var(--oscuro-transparente);
+    background-color: var(--oscuro-transparente);
+}
+.html-bar{
+    background-color: var(--amarillo);
+    width: 90%;
+    animation-name: barra-percent-html;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes barra-percent-html {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 90;
+    }
+}
+.css-bar{
+    background-color: var(--amarillo);
+    width: 95%;
+}
+.js-bar{
+    background-color: var(--amarillo);
+    width: 80%;
+}
+.logos__icono--icono{
+    color: var(--amarillo);
+    background-color: var(--oscuro-transparente);
+    padding: 1.5rem;
+    border: .3rem solid var(--amarillo);
+    transition: .3s all ease-in-out;
+}
+.logos__icono--icono:hover{
+    color: var(--oscuro);
+    background-color: var(--amarillo);
+    border-radius: 0;
+}
+
+.logos{
+    display: flex;
+    justify-content: space-around;
+}
+.logo-svg{
+    width: 10rem;
+    border: .5rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: .3s all ease-in-out;
+}
+.logo-svg:hover{
+    padding: .5rem;
+    transform: scale(1rem, 1rem);
+    border: .1rem solid black;
+    background-color: var(--amarillo);
+}
+.progress-bar-css{
+    position: relative;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.719);
+}
+.progress-bar-css::after{
+    position: absolute;
+    content: "95%";
+    background-color: var(--amarillo);
+    width: 95%;
+    height: 100%;
+    border-radius: 1rem;
+    top: 0;
+}
+
+
+/*----------PORTFOLIO----------*/
+
+.portfolio{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.portfolio__grid{
+    display: grid;
+    height: 85vh;
+    width: 100%;
+    grid-template-areas: 'titulo boton1 boton1 boton2 boton3'
+                         'titulo boton4 boton5 boton5 boton3'
+                         'titulo boton4 boton6 boton7 boton7';
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+.caja{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    padding: 1rem;
+    border: .3rem solid var(--amarillo);
+    border-radius: 1rem;
+    filter: sepia(1) blur(3px);
+    transition: .3s all ease-in-out;
+    padding: .5rem;
+}
+.panel{
+    background-color: var(--oscuro-transparente);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 70%;
+}
+.panel button{
+    width: 75%;
+    border-radius: 1rem;
+    margin: .5rem 0;
+}
+.caja:hover{
+    filter: sepia(0) blur(0);
+    transform: scale(200px, 200px);
+}
+
+.titulo{
+    grid-area: titulo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+}
+
+.caja1{
+    grid-area: boton1;
+    background-image: url(../assets/portfolio-andres-biasutto-viejo.jpg);
+    background-size: cover;
+    background-position: center;
+    
+}
+.caja2{
+    grid-area: boton2;
+    background-image: url(../assets/portfolio-andres-biasutto.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.caja3{
+    grid-area: boton3;
+    background-image: url(../assets/portfolio-andres-biasutto.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.caja4{
+    grid-area: boton4;
+    background-image: url(../assets/portfolio-andres-biasutto.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.caja5{
+    grid-area: boton5;
+    background-image: url(../assets/portfolio-andres-biasutto.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.caja6{
+    grid-area: boton6;
+    background-image: url(../assets/portfolio-andres-biasutto.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.caja7{
+    grid-area: boton7;
+    background-image: url(../assets/portfolio-andres-biasutto.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 600px) {
+    .portfolio{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .portfolio__grid{
+        display: flex;
+        flex-direction: column;
+        height: 85%;
+        margin-top: 13rem;
+    }
+    .titulo{
+        transform: rotate(90deg);
+        
+    }
+    .titulo h2{
+        font-size: 3rem;
+        width: 100%;
+        text-align: center;
+    }
+  }
+
+
+/*----------CONTACT----------*/
+.contact{
+    display: flex;
+    align-items: center;
+    background-image: url(../assets/img/fondo-contact.jpg);
+    background-color: var(--oscuro);
+    background-blend-mode: color-dodge;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+.contact__grid{
+    display: grid;
+    height: 85%;
+    width: 85%;
+    grid-template-areas: 'titu caja caja form form form'
+                         'titu caja caja form form form'
+                         'titu caja caja form form form'
+                         'titu caja caja soci soci soci';
+    padding: 1rem;
+}
+
+.contact__grid--titulo{
+    grid-area: titu;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    width: 10rem;
+}
+.contact__grid--form{
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin: auto 0;
+    width: 100%;
+    
+}
+.form__button{
+    background-color: var(--celeste);
+    color: var(--blanco);
+    height: 3rem;
+}
+.form__button:hover{
+    background-color: var(--amarillo);
+}
+.social{
+    grid-area: soci;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
